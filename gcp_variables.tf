@@ -10,7 +10,7 @@ variable "gcp_credentials_file" {
 
 variable gcp_project {
   description = "GCP Project"
-  default     = "terraform-testing-272920"
+  default     = "[UPDATE-WITH-YOUR-PROJECT-ID]"
 }
 
 variable gcp_region {
@@ -25,7 +25,7 @@ variable gcp_zone {
 
 variable on_prem_ip1 {
   description = "The IP of the on-prem VPN gateway"
-  default     = "UPDATE-ME"
+  default     = "[UPDATE-WITH-YOUR-IP]"
 }
 
 variable gcp_asn {
