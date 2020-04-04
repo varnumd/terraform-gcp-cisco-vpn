@@ -167,30 +167,14 @@ resource "google_compute_instance" "vm_instance2" {
   }
 }
 
-resource "google_compute_instance" "vm_instance3" {
-  name         = "terraform-intance-3"
-  machine_type = "f1-micro"
-  zone         = "us-west1-b"
-
-  boot_disk {
-    initialize_params {
-      image = "debian-cloud/debian-9"
-    }
-  }
-
-  network_interface {
-    # A default network is created for all GCP projects
-    # Using terraform interpolation, we'll reference the self_link here pointing to the newly created network
-    subnetwork = google_compute_subnetwork.tf_vpc_net1_subnet2.self_link
-    access_config {
-    }
-  }
-}
 
 resource "google_compute_firewall" "tf_firewall" {
   name    = "terraform-firewall-base"
   network = google_compute_network.tf_vpc_net1.self_link
 
+  allow {
+    protocol = "icmp"
+  }
 
 
   allow {
